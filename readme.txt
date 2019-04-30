@@ -20,3 +20,4 @@ NOTE: always generate source and build folder separately which is first question
 NOTE: always right docstring in between '''(triple single quotes) and not in between """(triple double quotes).
       use """(triple double quotes) for other purpose but '''(triple single quotes) are strictly reserved for docstring.
 
+6.) NO need to change any comment or code if quote problem occurs. Just change file associated with function name from Source/<function_name>.rst .

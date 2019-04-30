@@ -34,6 +34,10 @@ def tree_generator(code):
             function_docstring['%s'%curr_def]=f.partition("'''")[2].partition("'''")[0].strip()
             f=''
             curr_def = line.partition('def ')[2].partition('(')[0].strip()
+
+        if '#' in line:
+            if line.partition('#')[0].strip() is '':
+                continue
         f += line + '\n'
         for fun_name in function_names:
             if '%s'%fun_name in line and line.partition(fun_name)[2].strip().partition('(')[0].strip() is '' :

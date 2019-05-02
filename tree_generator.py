@@ -110,21 +110,64 @@ def create_rst(function_stack,function_docstring):
 
         print(str(function)+":"+s)
 
+def from_web(corpus,path):
+    corpus=corpus.partition('if __name__ ==')[0].partition('main()')[0]
+    function_stack,function_docstring=tree_generator(corpus)
+    generate_diag(function_stack=function_stack)
+    create_rst(function_stack=function_stack,function_docstring=function_docstring)
+
+    if os.path.exists(path+'/source/index.rst'):
+        f = '''.. bag_packing documentation master file, created by
+                    sphinx-quickstart on Fri Apr 26 11:52:42 2019.
+                    You can adapt this file completely to your liking, but it should at least
+                    contain the root `toctree` directive.
+
+        Welcome to bag_packing's documentation!
+        =======================================
+
+        .. toctree::
+           :maxdepth: 2
+           :caption: Contents:\n\n   codeflow'''
+        for function in function_stack:
+            f += '''\n   %s''' % function
+        f += '''\n\n\nIndices and tables
+        ==================
+
+        * :ref:`genindex`
+        * :ref:`modindex`
+        * :ref:`search`
+        '''
+        open(path+'/source/index.rst', 'w').write(f)
+
 
 
 if __name__=='__main__':
     if not os.path.exists('./source/conf.py'):
         os.system('sphinx-quickstart')
-    f=open('./__init__.py','r').read()
+    #f=open('./__init__.py','r').read()
     file_names=[]
-    for line in f.splitlines():
+    '''for line in f.splitlines():
         if 'from' in line and 'import' in line:
-            file_names.append(line.partition('from')[2].partition('import')[0].strip()+'.py')
+            file_names.append('./'+line.partition('from')[2].partition('import')[0].strip()+'/.py')
 
-    del f
+    del f'''
+    for r, d, f in os.walk('./'):
+        for file in f:
+            if '.py' in file and not '__init__' in file and not 'tree_generator.py' in file and not '.pyc' in file:
+
+                file_names.append(os.path.join(r, file))
+
+
     f=''
-    for file_name in file_names:
-        f+=open('%s'%file_name,'r').read().partition('if __name__ ==')[0]+'\n'
+    real_file_names=[]
+    for file in file_names:
+
+        real_file_names.append(file.replace('\\','/'))
+        print(file)
+    print(real_file_names)
+    for file_name in real_file_names:
+        print(file_name)
+        f+=open('%s'%file_name,'r').read().partition('if __name__ ==')[0].partition('def main()')[0]+'\n'
     function_stack,function_docstring=tree_generator(f)
     print(function_docstring)
     print(function_stack)

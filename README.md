@@ -15,7 +15,7 @@ pip install sphinx
 
 * put tree_generator.py in the folder where you want to generate sphinx documentation.
 
-  _NOTE_: __init__ file must be present in same folder in order to get full flow of the code.
+  _NOTE_: __init__ file must be present in same folder in order to get full flow of the code. If you don't have __init__ folder. <br>  Place tree_generator.py outside source folder.
 
 * run tree_generator.py and fill details in sphinx-quickstart if separate build and source folder doesn't exist already there.
 

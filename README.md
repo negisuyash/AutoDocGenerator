@@ -17,7 +17,7 @@ pip install sphinx
 
   _NOTE_: __init__ file must be present in same folder in order to get full flow of the code. If you don't have __init__ folder. <br>  Place tree_generator.py outside source folder.
 
-  <p><img src="setup.gif" height="300" width="800" /></p>
+  <p><img src="setup.gif" height="250" width="600" /></p>
 
 * run tree_generator.py and fill details in sphinx-quickstart if separate build and source folder doesn't exist already there.
 
@@ -27,7 +27,7 @@ pip install sphinx
   python tree_generator.py
   ```
 
-  <p><img src="run.gif" height="300" width="800" /></p>
+  <p><img src="run.gif" height="250" width="600" /></p>
 
 * Code will run and generate a separate ReStructure Template(rst) file for each function and a page with full code flow.
 
@@ -38,7 +38,7 @@ pip install sphinx
 
 * NO need to change any comment or code if quote problem occurs. Just change file associated with function name from Source/<function_name>.rst .
 
-  <p><img src="makeHTML.gif" height="300" width="800" /></p>
+  <p><img src="makeHTML.gif" height="250" width="600" /></p>
 
 * run make.bat file 
   ```bash

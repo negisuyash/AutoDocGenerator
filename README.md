@@ -44,3 +44,5 @@ pip install sphinx
   ```bash
   make html
   ```
+
+  Please feel free to contact me for any issues.

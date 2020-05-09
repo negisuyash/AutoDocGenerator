@@ -25,7 +25,7 @@ pip install sphinx
 
 * Code directly read documentation from docstring provided it is just under the function defination.
 
-  _NOTE_: always right docstring in between '''(triple single quotes) and not in between """(triple double quotes).
+  _NOTE_: always write docstring in between '''(triple single quotes) and not in between """(triple double quotes).
       Use <b>"""(triple double quotes)</b> for other purpose but <b>'''(triple single quotes)</b> are strictly reserved for docstring.
 
 * NO need to change any comment or code if quote problem occurs. Just change file associated with function name from Source/<function_name>.rst .
